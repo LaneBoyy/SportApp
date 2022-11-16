@@ -47,6 +47,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
+            android:textColor="@color/text_grey"
             android:text="@string/tv_tutorial_description"
             android:textSize="16sp"
             android:textStyle="bold" />
