@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SportApp</string>
+    <string name="tv_tutorial_text">How to start training</string>
+    <string name="tv_tutorial_description">This application will help you keep fit and keep you in good shape. To achieve the best result, complete the tasks following the training plan. Good luck and new achievements!</string>
+</resources>
