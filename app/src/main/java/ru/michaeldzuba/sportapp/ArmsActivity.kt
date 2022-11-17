@@ -1,38 +1,52 @@
 package ru.michaeldzuba.sportapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 
 class ArmsActivity : AppCompatActivity() {
 
     private lateinit var viewModel: MainViewModel
-    private lateinit var shopListAdapter: ExerciseListAdapter
+    private lateinit var exerciseListAdapter: ExerciseListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_arms)
+
+
+
         setupRecyclerView()
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
         viewModel.exerciseList.observe(this) {
-            shopListAdapter.submitList(it)
+            exerciseListAdapter.submitList(it)
         }
     }
 
     private fun setupRecyclerView() {
         val rvExerciseList = findViewById<RecyclerView>(R.id.rv)
-        with(rvShopList) {
-            shopListAdapter = ShopListAdapter()
-            adapter = shopListAdapter
+        with(rvExerciseList) {
+            exerciseListAdapter = ExerciseListAdapter()
+            adapter = exerciseListAdapter
             recycledViewPool.setMaxRecycledViews(
-                ShopListAdapter.VIEW_TYPE_ENABLED,
-                ShopListAdapter.MAX_POOL_SIZE
+                ExerciseListAdapter.VIEW_TYPE_EXERCISE,
+                ExerciseListAdapter.MAX_POOL_SIZE
             )
             recycledViewPool.setMaxRecycledViews(
-                ShopListAdapter.VIEW_TYPE_DISABLED,
-                ShopListAdapter.MAX_POOL_SIZE
+                ExerciseListAdapter.VIEW_TYPE_IMAGE,
+                ExerciseListAdapter.MAX_POOL_SIZE
             )
+
+            setupClickListener()
+        }
+    }
+
+    private fun setupClickListener() {
+        exerciseListAdapter.onExerciseItemClickListener = {
+                val intent = Intent(this, ExerciseItemActivity::class.java)
+                startActivity(intent)
         }
     }
 }

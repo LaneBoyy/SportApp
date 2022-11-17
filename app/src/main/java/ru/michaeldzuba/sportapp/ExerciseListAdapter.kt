@@ -4,9 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 
-class ExerciseListAdapter : ListAdapter<ExerciseItem, ExerciseItemViewHolder>(ExerciseItemDiffCallback()){
+class ExerciseListAdapter :
+    ListAdapter<ExerciseItem, ExerciseItemViewHolder>(ExerciseItemDiffCallback()) {
 
-    var onShopItemClickListener: ((ExerciseItem) -> Unit)? = null
+    var onExerciseItemClickListener: ((ExerciseItem) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExerciseItemViewHolder {
         val layout = when (viewType) {
@@ -19,12 +20,14 @@ class ExerciseListAdapter : ListAdapter<ExerciseItem, ExerciseItemViewHolder>(Ex
     }
 
     override fun onBindViewHolder(viewHolder: ExerciseItemViewHolder, position: Int) {
-        val shopItem = getItem(position)
+        val exerciseItem = getItem(position)
         with(viewHolder) {
-            tvName.text = shopItem.name
-            tvCount.text = shopItem.count.toString()
-            view.setOnClickListener {
-                onShopItemClickListener?.invoke(shopItem)
+            tvName.text = exerciseItem.name
+            tvCount.text = exerciseItem.count.toString()
+            if (!tvName.text.equals("")) {
+                view.setOnClickListener {
+                    onExerciseItemClickListener?.invoke(exerciseItem)
+                }
             }
         }
     }
