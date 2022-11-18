@@ -3,16 +3,14 @@ package ru.michaeldzuba.sportapp.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
-import android.widget.Toast
-import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import ru.michaeldzuba.sportapp.*
 
 class ExercisesActivity : AppCompatActivity() {
 
     private lateinit var exerciseListAdapter: ExerciseListAdapter
-    private lateinit var exerciseItem: LiveData<ExerciseItem>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,7 +66,6 @@ class ExercisesActivity : AppCompatActivity() {
 
         setupRecyclerView()
         exerciseListAdapter.submitList(exerciseList)
-
     }
 
     private fun setupRecyclerView() {
@@ -91,7 +88,13 @@ class ExercisesActivity : AppCompatActivity() {
     private fun setupClickListener() {
         exerciseListAdapter.onExerciseItemClickListener = {
                 val intent = Intent(this, ExerciseItemActivity::class.java)
+                intent.putExtra(INTENT_KEY, findViewById<TextView>(R.id.tv_name).text)
+                Log.d("1221", findViewById<TextView>(R.id.tv_name).text.toString())
                 startActivity(intent)
         }
+    }
+
+    companion object {
+        const val INTENT_KEY = "Exercise name"
     }
 }
