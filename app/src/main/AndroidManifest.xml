@@ -20,21 +20,21 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ArmsActivity"
+            android:name=".activities.ExercisesActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ChooseTypeActivity"
+            android:name=".activities.ChooseTypeActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".SplashScreen"
+            android:name=".activities.SplashScreen"
             android:exported="true"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -44,7 +44,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TutorialScreenActivity"
+            android:name=".activities.TutorialScreenActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

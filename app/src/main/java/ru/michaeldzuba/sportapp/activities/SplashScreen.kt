@@ -1,4 +1,4 @@
-package ru.michaeldzuba.sportapp
+package ru.michaeldzuba.sportapp.activities
 
 import android.content.Intent
 import android.os.Bundle

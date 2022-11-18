@@ -1,9 +1,10 @@
- package ru.michaeldzuba.sportapp
+ package ru.michaeldzuba.sportapp.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.AppCompatButton
+import ru.michaeldzuba.sportapp.R
 
  class TutorialScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

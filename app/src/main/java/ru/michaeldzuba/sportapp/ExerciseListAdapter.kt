@@ -12,7 +12,7 @@ class ExerciseListAdapter :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExerciseItemViewHolder {
         val layout = when (viewType) {
             VIEW_TYPE_IMAGE -> R.layout.first_card_on_rv
-            VIEW_TYPE_EXERCISE -> R.layout.exercis_item_for_rv
+            VIEW_TYPE_EXERCISE -> R.layout.exercise_item_for_rv
             else -> throw RuntimeException("Unknown view type: $viewType")
         }
         val view = LayoutInflater.from(parent.context).inflate(layout, parent, false)

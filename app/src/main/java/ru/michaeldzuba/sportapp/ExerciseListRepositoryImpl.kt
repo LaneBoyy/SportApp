@@ -11,28 +11,6 @@ object ExerciseListRepositoryImpl : ExerciseListRepository {
 
     private var autoIncrementId = 0
 
-    init {
-
-        val item0 = ExerciseItem("", 1)
-
-//        val item1 = ExerciseItem("Отжимания", 15)
-//        val item2 = ExerciseItem("Отжимания", 15)
-//        val item3 = ExerciseItem("Отжимания", 15)
-//        val item4 = ExerciseItem("Отжимания", 15)
-//        val item5 = ExerciseItem("Отжимания", 15)
-//        val item6 = ExerciseItem("Отжимания", 15)
-//        val item7 = ExerciseItem("Отжимания", 15)
-//        val item8 = ExerciseItem("Отжимания", 15)
-//        val item9 = ExerciseItem("Отжимания", 15)
-
-        addExerciseItem(item0)
-
-        for (i in 0 until 10) {
-            val item = ExerciseItem("Отжимания", i)
-            addExerciseItem(item)
-        }
-    }
-
     override fun addExerciseItem(exerciseItem: ExerciseItem) {
         if (exerciseItem.id == ExerciseItem.UNDEFINED_ID) {
             exerciseItem.id = autoIncrementId++
